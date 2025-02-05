@@ -1,5 +1,6 @@
 # Prerequisites
 *.d
+*.pdf
 
 # Compiled Object files
 *.slo
@@ -26,10 +27,16 @@
 *.a
 *.lib
 
-# Executables
+# IDE files
+
+/.idea/
+
+# Executables and output files
 *.exe
 *.out
 *.app
 CPP01/ex0?/brain
 CPP01/ex0?/brains
 CPP01/ex0?/violence
+/CPP01/ex04/neosed
+/CPP01/ex04/*.replace
