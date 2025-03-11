@@ -2,13 +2,14 @@
 #include "../inc/Bureaucrat.hpp"
 
 AForm::AForm(std::string name, std::string target, int sign_grade, int exec_grade)
-	: _name(std::move(name)), _target(std::move(target)),
-	_is_signed(false), _sign_grade(sign_grade), _exec_grade(exec_grade)
-{
-	if (sign_grade < 1 || exec_grade < 1)
+		: _name(std::move(name)), _target(std::move(target)),
+		  _is_signed(false), _sign_grade(sign_grade), _exec_grade(exec_grade) {
+	if (sign_grade < 1 || exec_grade < 1) {
 		throw AForm::GradeTooHighException();
-	if (sign_grade > 150 || exec_grade > 150)
+	}
+	if (sign_grade > 150 || exec_grade > 150) {
 		throw AForm::GradeTooLowException();
+	}
 }
 
 AForm &AForm::operator=(const AForm &src) {
@@ -36,16 +37,19 @@ int AForm::getExecGrade() const {
 }
 
 void AForm::beSigned(const Bureaucrat &bureaucrat) {
-	if (bureaucrat.getGrade() > _sign_grade)
+	if (bureaucrat.getGrade() > _sign_grade) {
 		throw AForm::GradeTooLowException();
+	}
 	_is_signed = true;
 }
 
 void AForm::execute(const Bureaucrat &executor) const {
-	if(!_is_signed)
+	if (!_is_signed) {
 		throw AForm::FormNotSignedException();
-	if(executor.getGrade() > _exec_grade)
+	}
+	if (executor.getGrade() > _exec_grade) {
 		throw AForm::GradeTooLowException();
+	}
 	takeAction(executor);
 }
 

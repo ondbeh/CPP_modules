@@ -13,7 +13,10 @@ RM			=	rm -f
 INCLUDES	=	-I./$(HDR_DIR)/
 
 # Source files and corresponding object files
-SRCS		=	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
+SRCS		=	main.cpp Bureaucrat.cpp AForm.cpp \
+ 				ShrubberyCreationForm.cpp \
+ 				RobotomyRequestForm.cpp \
+ 				PresidentialPardonForm.cpp
 
 SRCS		:=	$(addprefix $(SRC_DIR)/, $(SRCS))
 OBJS		=	$(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
